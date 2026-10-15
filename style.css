@@ -1,0 +1,45 @@
+:root{--bg:#d8cda4;--panel:#efe5bf;--ink:#1b1230;--a:#b3261e;--b:#1f6b34;--gold:#8a5a00;--line:#1b1230;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0817;--panel:#181030;--ink:#f2e9c9;--a:#ff5a36;--b:#5bd86b;--gold:#ffcf3a;--line:#f2e9c9;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0817;--panel:#181030;--ink:#f2e9c9;--a:#ff5a36;--b:#5bd86b;--gold:#ffcf3a;--line:#f2e9c9;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"VT323","Courier New",monospace;font-size:23px;line-height:1.3;image-rendering:pixelated}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(0,0,0,.14) 0 1px,transparent 1px 3px);z-index:5}
+.wrap{max-width:880px;margin:0 auto;padding:22px 14px 60px}
+.px{background:var(--panel);border:4px solid var(--line);box-shadow:0 0 0 4px var(--bg),0 0 0 8px var(--line),10px 10px 0 8px rgba(0,0,0,.35);padding:22px 18px;margin-bottom:34px}
+.hud{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:"Press Start 2P",monospace;font-size:10px;color:var(--gold);margin-bottom:22px}
+h1{font-family:"Press Start 2P","Courier New",monospace;font-size:clamp(20px,6.2vw,42px);line-height:1.35;text-align:center;margin:18px 0 10px;color:var(--a);text-transform:uppercase;text-shadow:4px 4px 0 var(--ink)}
+.tag{text-align:center;font-size:26px;margin:0 0 18px}
+.coin{font-family:"Press Start 2P",monospace;font-size:12px;text-align:center;color:var(--gold);animation:blink 1s steps(2) 1.6s infinite;margin:18px 0 4px}
+@keyframes blink{50%{opacity:0}}
+@keyframes drop{from{transform:translateY(-40px);opacity:0}to{transform:none;opacity:1}}
+h1{animation:drop .8s steps(8) 1.6s both}
+@media (prefers-reduced-motion:reduce){h1,.coin{animation:none}}
+h2{font-family:"Press Start 2P",monospace;font-size:14px;line-height:1.5;color:var(--b);margin:0 0 16px;padding-bottom:10px;border-bottom:4px dashed var(--line)}
+h2 small{display:block;font-size:9px;color:var(--gold);margin-bottom:6px}
+p{margin:0 0 14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:16px 0 0}
+.fact{border:3px solid var(--line);padding:8px 10px}
+.fact b{display:block;font-family:"Press Start 2P",monospace;font-size:9px;color:var(--gold);margin-bottom:6px;font-weight:normal}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:flex;gap:12px;margin-bottom:12px;align-items:baseline}
+.tl b{font-family:"Press Start 2P",monospace;font-size:11px;color:var(--a);font-weight:normal;flex:0 0 76px}
+.scroll{overflow-x:auto;max-width:100%;margin-bottom:24px}
+table{width:100%;border-collapse:collapse;min-width:520px}
+caption{font-family:"Press Start 2P",monospace;font-size:11px;text-align:left;color:var(--gold);padding:0 0 10px}
+th{font-family:"Press Start 2P",monospace;font-size:9px;font-weight:normal;text-align:left;background:var(--ink);color:var(--panel);padding:8px 10px}
+td{padding:6px 10px;border-bottom:2px dotted var(--line);vertical-align:top}
+td:first-child{color:var(--b);white-space:nowrap}
+td.fx{font-size:20px;color:var(--a)}
+.note{font-size:20px;opacity:.8}
+footer{text-align:center;font-family:"Press Start 2P",monospace;font-size:9px;line-height:1.8;opacity:.8}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-items:start}
+.ph{margin:0;border:4px solid var(--line);background:var(--bg);padding:6px}
+.ph.wide{grid-column:1/-1}
+.ph img{display:block;width:100%;height:auto;max-width:100%}
+.ph figcaption{font-family:"Press Start 2P",monospace;font-size:9px;line-height:1.7;color:var(--gold);padding:8px 2px 2px}
+@media (max-width:560px){.gallery{grid-template-columns:1fr}}
+.intro{position:fixed;inset:0;background:#000;z-index:10;pointer-events:none;animation:desvanecer 2.6s ease-out .4s forwards}
+@keyframes desvanecer{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.intro{display:none}}
